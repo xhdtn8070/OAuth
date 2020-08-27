@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tikim.boot.mapper.DisposableSaltMapper">
+    <select id="selectDisposableSalt" resultMap="ResultDisposableSalt">
+        SELECT
+        <include refid="column-list">
+            <property name="prefix" value=""/>
+            <property name="alias" value="DS."/>
+        </include>
+        FROM TB_DISPOSABLE_SALT_INFO DS
+        WHERE DS.ID = #{id}
+    </select>
+
+    <select id="selectDisposableSaltByUnique" resultMap="ResultDisposableSalt">
+        SELECT
+        <include refid="column-list">
+            <property name="prefix" value=""/>
+            <property name="alias" value="DS."/>
+        </include>
+        FROM TB_DISPOSABLE_SALT_INFO DS
+        WHERE DS.USER_ID = #{user_id} AND DS.SUBJECT = #{subject}
+    </select>
+
+    <resultMap id="ResultDisposableSalt" type="org.tikim.boot.domain.entity.DisposableSalt">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="subject" column="subject"/>
+        <result property="salt" column="salt"/>
+        <result property="deletes" column="deletes"/>
+        <result property="updatedAt" column="created_at"/>
+        <result property="createdAt" column="updated_at"/>
+    </resultMap>
+
+    <sql id="column-list">
+			${alias}ID AS ${prefix}ID
+			,${alias}USER_ID AS ${prefix}USER_ID
+			,${alias}SUBJECT AS ${prefix}SUBJECT
+			,${alias}SALT AS ${prefix}SALT
+			,${alias}DELETES AS ${prefix}DELETES
+			,${alias}CREATED_AT AS ${prefix}CREATED_AT
+			,${alias}UPDATED_AT AS ${prefix}UPDATED_AT
+	</sql>
+</mapper>

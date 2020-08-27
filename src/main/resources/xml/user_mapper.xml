@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tikim.boot.mapper.UserMapper">
+    <select id="selectUser" resultMap="ResultUser">
+        SELECT
+        <include refid="column-list">
+            <property name="prefix" value=""/>
+            <property name="alias" value="U."/>
+        </include>
+        FROM TB_USER_INFO U
+        WHERE U.ID = #{id}
+    </select>
+
+    <select id="selectUserByAccount" resultMap="ResultUser">
+        SELECT
+        <include refid="column-list">
+            <property name="prefix" value=""/>
+            <property name="alias" value="U."/>
+        </include>
+        FROM TB_USER_INFO U
+        WHERE U.ACCOUNT = #{account}
+    </select>
+
+    <select id="selectUserByStudentEmail" resultMap="ResultUser">
+        SELECT
+        <include refid="column-list">
+            <property name="prefix" value=""/>
+            <property name="alias" value="U."/>
+        </include>
+        FROM TB_USER_INFO U
+        WHERE U.STUDENT_EMAIL = #{student_email}
+    </select>
+
+    <resultMap id="ResultUser" type="org.tikim.boot.domain.entity.User">
+        <result property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="studentNumber" column="student_number"/>
+        <result property="studentEmail" column="student_email"/>
+        <result property="major" column="major"/>
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="profileImageUrl" column="profile_image_url"/>
+        <result property="salt" column="salt"/>
+        <result property="gender" column="gender"/>
+        <result property="graduated" column="graduates"/>
+        <result property="certifies" column="certifies"/>
+        <result property="deletes" column="deletes"/>
+        <result property="updatedAt" column="created_at"/>
+        <result property="createdAt" column="updated_at"/>
+    </resultMap>
+
+    <sql id="column-list">
+			${alias}ID AS ${prefix}ID
+			,${alias}ACCOUNT AS ${prefix}ACCOUNT
+			,${alias}PASSWORD AS ${prefix}PASSWORD
+			,${alias}NAME AS ${prefix}NAME
+			,${alias}STUDENT_NUMBER AS ${prefix}STUDENT_NUMBER
+			,${alias}STUDENT_EMAIL AS ${prefix}STUDENT_EMAIL
+			,${alias}MAJOR AS ${prefix}MAJOR
+			,${alias}PHONE_NUMBER AS ${prefix}PHONE_NUMBER
+			,${alias}PROFILE_IMAGE_URL AS ${prefix}PROFILE_IMAGE_URL
+			,${alias}SALT AS ${prefix}SALT
+			,${alias}GENDER AS ${prefix}GENDER
+			,${alias}GRADUATES AS ${prefix}GRADUATES
+			,${alias}CERTIFIES AS ${prefix}CERTIFIES
+			,${alias}DELETES AS ${prefix}DELETES
+			,${alias}CREATED_AT AS ${prefix}CREATED_AT
+			,${alias}UPDATED_AT AS ${prefix}UPDATED_AT
+	</sql>
+</mapper>
