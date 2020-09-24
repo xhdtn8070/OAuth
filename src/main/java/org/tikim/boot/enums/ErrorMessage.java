@@ -7,6 +7,7 @@ public enum ErrorMessage {
 	JSON_PARSE_EXCEPTION(2,"JSON Parse 과정에 문제가 있습니다. 데이터를 확인해주세요"),
 	AOP_XSS_SETTER_NO_EXSISTS_EXCEPTION(3,"해당 필드에 SETTER가 존재하지 않습니다."),
 	AOP_XSS_FIELD_NO_EXSISTS_EXCEPTION(3,"해당 필드에 FIELD가 존재하지 않습니다."),
+
 	/*
 	 * DB_CONSTRAIN INVALID
 	 */
@@ -23,6 +24,8 @@ public enum ErrorMessage {
 	JWT_PAYLOAD_EXCEPTION(1050,"JWT의 PAYLOAD가 올바르지 않습니다."),
 	JWT_SUBJECT_INVALID_EXCEPTION(1050,"JWT의 Subject가 올바르지 않습니다."),
 	JWT_REFRESH_INVALID_EXCEPTION(1050,"Refresh TOKEN이 올바르지 않습니다."),
+	JWT_SALTNULL_EXCEPTION(1050,"해당 JWT의 SALT값이 NULL입니다."),
+	JWT_NON_TYPE_EXCEPTION(1050,"타입이 존재하지 않습니다."),
 	USER_NULL_POINTER_EXCEPTION(1050,"존재하지 않거나 삭제된 유저입니다."),
 	USER_ACCOUNT_NULL_POINTER_EXCEPTION(111,"존재하지 않는 아이디입니다."),
 	USER_PASSWORD_INVAILD_EXCEPTION(111,"올바르지 않은 비밀번호입니다."),

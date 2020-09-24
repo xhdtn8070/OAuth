@@ -14,4 +14,6 @@ public interface JwtService {
     Jws<Claims> validate(String token);
 
     String reGenerateToken(String token);
+
+    TokenType getTokenType(String token);
 }

@@ -1,8 +1,6 @@
 DROP TABLE IF EXISTS TB_DISPOSABLE_SALT_INFO;
-DROP SEQUENCE IF EXISTS disposable_salt_sequence_info;
-CREATE SEQUENCE disposable_salt_sequence_info;
 CREATE TABLE TB_DISPOSABLE_SALT_INFO (
-	 ID 						BIGINT 	default nextval('disposable_salt_sequence_info')
+	 ID 						BIGINT AUTO_INCREMENT
 	,USER_ID 					BIGINT
 	,SUBJECT  			        VARCHAR(64) NOT NULL
 	,SALT  			            VARCHAR(512) NOT NULL

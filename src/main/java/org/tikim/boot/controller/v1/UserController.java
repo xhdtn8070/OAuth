@@ -58,6 +58,14 @@ public class UserController {
         return new ResponseEntity<String>(userService.authenticate(token),HttpStatus.OK);
     }
 
+    @Xss
+    @Auth(type = Auth.Type.NONE)
+    @PostMapping(path = "/refresh")
+    public ResponseEntity<String> refresh(
+            @ApiParam(value = "(required: token)",name = "token", required = true) @RequestBody String token) throws Exception {
+        return new ResponseEntity<String>(userService.authenticate(token),HttpStatus.OK);
+    }
+
 //    @Xss
 //    @Auth(type = Auth.Type.NONE)
 //    @PostMapping(path = "/authenticate")

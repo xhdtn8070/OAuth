@@ -1,8 +1,6 @@
 DROP TABLE IF EXISTS TB_USER_INFO;
-DROP SEQUENCE IF EXISTS user_sequence_info;
-CREATE SEQUENCE user_sequence_info;
 CREATE TABLE TB_USER_INFO (
-	 ID 						BIGINT 	default nextval('user_sequence_info')
+	 ID 						BIGINT NOT NULL AUTO_INCREMENT
 	,ACCOUNT  			        VARCHAR(64) NOT NULL
 	,PASSWORD  			        VARCHAR(512) NOT NULL
 	,NAME  			            VARCHAR(64) NOT NULL

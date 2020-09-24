@@ -24,7 +24,7 @@ public class DisposableSalt extends BaseEntity{
     @Column(nullable=false)
     @ApiModelProperty(notes = "subject", example = "Identity verification")
     @NotNull(groups = {ValidationGroups.CreateAdmin.class, ValidationGroups.Create.class, ValidationGroups.UpdateAdmin.class, ValidationGroups.Login.class}, message = "아이디는 비워둘 수 없습니다.")
-    @Pattern(regexp = "^[a-z_0-9]{1,12}$", message = "subject 형식이 올바르지 않습니다.")
+    @Pattern(groups = {ValidationGroups.CreateAdmin.class, ValidationGroups.Create.class, ValidationGroups.UpdateAdmin.class, ValidationGroups.Login.class}, regexp = "^[a-zA-Z_0-9]{1,12}$", message = "subject 형식이 올바르지 않습니다.")
     private String subject;
 
     @Column
